@@ -1,0 +1,33 @@
+﻿<Window x:Class="AttitudeIndicatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="517" Width="856" Loaded="Window_Loaded">
+    <Grid Name="panelMainGrid">
+        <Canvas Height="100" HorizontalAlignment="Left" Margin="417,366,0,0" Name="canvas3" VerticalAlignment="Top" Width="200" />
+        
+        <Canvas Height="276" Width="240" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ai_canvas" VerticalAlignment="Top" MouseMove="border1_MouseMove" Cursor="None">
+        </Canvas>
+        
+        <Slider Height="24" HorizontalAlignment="Left" Margin="86,332,0,0" Name="slider_roll" VerticalAlignment="Top" Width="166" ValueChanged="slider_roll_ValueChanged" Maximum="180" Minimum="0" />
+        <Slider Height="24" HorizontalAlignment="Left" Margin="86,379,0,0" Name="slider_pitch" VerticalAlignment="Top" Width="166" ValueChanged="slider_pitch_ValueChanged" Maximum="180" />
+        <Label Content="Roll" Height="28" HorizontalAlignment="Left" Margin="34,332,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Pitch" Height="28" HorizontalAlignment="Left" Margin="34,379,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="roll" Height="28" HorizontalAlignment="Left" Margin="259,328,0,0" Name="labelRoll" VerticalAlignment="Top" />
+        <Label Content="pitch" Height="28" HorizontalAlignment="Left" Margin="259,0,0,75" Name="labelPitch" VerticalAlignment="Bottom" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="124,426,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Canvas Height="240" HorizontalAlignment="Left" Margin="456,48,0,0" Name="canvas2" VerticalAlignment="Top" Width="240">
+            <Image Canvas.Left="0" Canvas.Top="0" Height="240" Name="hsi_base" Stretch="Fill" Width="240" Source="/AttitudeIndicator;component/Images/hsi_base.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="hsi_base_trans"/>
+                </Image.RenderTransform>
+             </Image>
+            <Image Name="hsi_needle" Width="240" Height="240" Source="/AttitudeIndicator;component/Images/hsi_needle.png" />
+        </Canvas>
+        <Slider Height="24" HorizontalAlignment="Left" Margin="507,313,0,0" Maximum="360" Minimum="0" Name="slider_heading" VerticalAlignment="Top" Width="166" ValueChanged="slider_heading_ValueChanged" />
+        <Label Content="Heading" Height="28" HorizontalAlignment="Left" Margin="446,309,0,0" Name="lbl_hdg" VerticalAlignment="Top" />
+        <Label Content="hdg" Height="28" HorizontalAlignment="Left" Margin="680,309,0,0" Name="labelHeading" VerticalAlignment="Top" />
+        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="506,396,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="524,446,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" />
+        
+    </Grid>
+</Window>
