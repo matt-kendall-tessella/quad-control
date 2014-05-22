@@ -106,15 +106,15 @@
     <Resource Include="Images\Needle.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\attitude_base.jpg">
+    <Resource Include="Images\BasicAttitudeIndicator\attitude_base.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\attitude_pointer.jpg" />
+    <Resource Include="Images\BasicAttitudeIndicator\attitude_pointer.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\attitude_pointer_trans.png">
+    <Resource Include="Images\BasicAttitudeIndicator\attitude_pointer_trans.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

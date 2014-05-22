@@ -44,7 +44,7 @@ namespace AttitudeIndicatorApp.Gauges
             aiBackground.RenderTransformOrigin = new Point(0.5, 0.5);
             aiBackground.ClipToBounds = false;
             aiBackground.OverridesDefaultStyle = true;
-            aiBackground.Source = new BitmapImage(new Uri(@"../../Images/attitude_base.jpg", UriKind.Relative));
+            aiBackground.Source = new BitmapImage(new Uri(@"../../Images/BasicAttitudeIndicator/attitude_base.jpg", UriKind.Relative));
             // center the image in the canvas
             var l = ((canvas.Width - aiBackground.Width) / 2);
             Canvas.SetLeft(aiBackground, l);
@@ -61,7 +61,7 @@ namespace AttitudeIndicatorApp.Gauges
             aiNeedle.Height = canvas.Height * 0.10;
             aiNeedle.Width = canvas.Width * 0.20;
             aiNeedle.Stretch = System.Windows.Media.Stretch.Fill;
-            aiNeedle.Source = new BitmapImage(new Uri(@"../../Images/attitude_pointer_trans.png", UriKind.Relative));          
+            aiNeedle.Source = new BitmapImage(new Uri(@"../../Images/BasicAttitudeIndicator/attitude_pointer_trans.png", UriKind.Relative));          
             Canvas.SetLeft(aiNeedle, (canvas.Width - aiNeedle.Width) / 2);
             Canvas.SetTop(aiNeedle, canvas.Height / 2 );//- 3);
         }
