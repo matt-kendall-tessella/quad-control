@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadControl", "AttitudeIndicator\QuadControl.csproj", "{2366D603-31BC-473C-B30F-57DD9D24B436}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadControl", "QuadControl\QuadControl.csproj", "{2366D603-31BC-473C-B30F-57DD9D24B436}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
