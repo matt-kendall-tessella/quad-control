@@ -7,9 +7,9 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 
-using AttitudeIndicatorApp.Data;
+using QuadControlApp.Data;
 
-namespace AttitudeIndicatorApp.Gauges
+namespace QuadControlApp.Gauges
 {
     class BasicAttitudeIndicator : IAttitudeIndicator
     {

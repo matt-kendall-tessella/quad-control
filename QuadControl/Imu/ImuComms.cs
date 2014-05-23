@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.IO.Ports;
 using System.Reflection;
 
-namespace AttitudeIndicatorApp.Imu
+namespace QuadControlApp.Imu
 {
     /// <summary>
     /// This class communicates with the IMU via Serial and parses and outputs raw attitude data. 

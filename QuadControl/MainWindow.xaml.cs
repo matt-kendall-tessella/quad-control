@@ -1,25 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-using System.IO.Ports;
-using System.Threading;
 
-using AttitudeIndicatorApp.Data;
-using AttitudeIndicatorApp.Gauges;
+using QuadControlApp.Data;
+using QuadControlApp.Gauges;
 
-namespace AttitudeIndicatorApp
+namespace QuadControlApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -31,9 +19,9 @@ namespace AttitudeIndicatorApp
         private double pitch;
         private double heading;
 
-        private int V_PX = 800;
-        private int V_PX_PER_DEGREE = 6;
-        private double V_OFFSET;
+        //private int V_PX = 800;
+        //private int V_PX_PER_DEGREE = 6;
+        //private double V_OFFSET;
 
         private App app;
 

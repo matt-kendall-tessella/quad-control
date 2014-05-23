@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using AttitudeIndicatorApp.Data;
+using QuadControlApp.Data;
 
-namespace AttitudeIndicatorApp.Gauges
+namespace QuadControlApp.Gauges
 {
     interface IAttitudeIndicator : IGauge
     {

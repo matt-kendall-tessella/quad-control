@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using AttitudeIndicatorApp.Imu;
-using AttitudeIndicatorApp.Sensors;
-using AttitudeIndicatorApp.Data;
+using QuadControlApp.Imu;
+using QuadControlApp.Sensors;
+using QuadControlApp.Data;
 
-namespace AttitudeIndicatorApp
+namespace QuadControlApp
 {
     // Manages the current attitude information
     public class AiLogic

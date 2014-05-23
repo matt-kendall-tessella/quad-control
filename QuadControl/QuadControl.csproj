@@ -8,7 +8,7 @@
     <ProjectGuid>{2366D603-31BC-473C-B30F-57DD9D24B436}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AttitudeIndicatorApp</RootNamespace>
+    <RootNamespace>QuadControlApp</RootNamespace>
     <AssemblyName>AttitudeIndicator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
