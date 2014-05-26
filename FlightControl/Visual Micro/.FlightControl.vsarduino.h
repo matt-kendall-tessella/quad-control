@@ -3,6 +3,7 @@
 //Board = Arduino Diecimila or Duemilanove w/ ATmega168
 #define __AVR_ATmega168__
 #define 
+#define _VMDEBUG 1
 #define ARDUINO 105
 #define ARDUINO_MAIN
 #define __AVR__
@@ -30,9 +31,16 @@ typedef unsigned char byte;
 extern "C" void __cxa_pure_virtual() {;}
 
 //
+void zero();
+void readAccel();
 //
+void outputAttitude();
+void outputRawCsv();
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\FlightControl.ino"
+#include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\CppRes.cpp"
+#include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\CppRes.h"
+#include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\Tests.cpp"
 #endif
