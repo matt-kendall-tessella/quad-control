@@ -12,15 +12,14 @@ namespace QuadControlApp
     /// </summary>
     public partial class App : Application
     {
-        public AiLogic aiLogic;
         public MainWindow mainWindow;
+        public QuadController controller;
 
         private void applicationStartup(object sender, StartupEventArgs e)
         {
-           mainWindow = new MainWindow(this);
-           //aiLogic = new AiLogic(this);
-           //aiLogic.beginImuComms();
-           mainWindow.Show();
+            mainWindow = new MainWindow();
+            controller = new QuadController(this.mainWindow);
+            mainWindow.Show();
         }
     }
 }

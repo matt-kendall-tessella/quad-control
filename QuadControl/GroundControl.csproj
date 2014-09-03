@@ -55,12 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\IQuadData.cs" />
+    <Compile Include="Data\EngineData.cs" />
+    <Compile Include="Data\IData.cs" />
+    <Compile Include="QuadController.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Data\BaseData.cs" />
     <Compile Include="Gauges\IAttitudeIndicator.cs" />
     <Compile Include="Gauges\BasicAttitudeIndicator.cs" />
     <Compile Include="Gauges\IGauge.cs" />
-    <Compile Include="Sensors\Accelerometer.cs" />
-    <Compile Include="Sensors\Compass.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,8 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AiLogic.cs" />
-    <Compile Include="Data\Attitude.cs" />
+    <Compile Include="Data\AttitudeData.cs" />
     <Compile Include="Imu\ImuComms.cs" />
     <Compile Include="Imu\ImuData.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -123,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\hsi_needle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sensors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

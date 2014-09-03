@@ -33,6 +33,8 @@ extern "C" void __cxa_pure_virtual() {;}
 //
 void zero();
 void readAccel();
+void calibrateAccel(int x, int y, int z);
+void calculateOrientation(double x, double y, double z);
 //
 void outputAttitude();
 void outputRawCsv();

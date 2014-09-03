@@ -14,7 +14,7 @@ namespace QuadControlApp.Imu
     class ImuComms
     {
         private SerialPort port;
-        private AiLogic aiLogic;
+        //private AiLogic aiLogic;
         public static int BAUD_RATE = 115200;
         public static int DELAY = 100;
 
@@ -22,10 +22,10 @@ namespace QuadControlApp.Imu
         //static String dataEnd = "Z";
         //static List<String> dataPrefixes = new List<string> { "XA", "YA", "ZA", "XG", "YG", "ZG", "XM", "YM", "P", "T" };
 
-        public void start(AiLogic aiLogic) 
+        public void start(QuadController aiLogic) 
         {
-            this.aiLogic = aiLogic;
-            port = new SerialPort("COM4", BAUD_RATE);
+            //this.aiLogic = aiLogic;
+            port = new SerialPort("COM6", BAUD_RATE);
             port.Open();
             port.DtrEnable = true;
             port.RtsEnable = true;
@@ -49,7 +49,7 @@ namespace QuadControlApp.Imu
             {
                 String dataString = dataStrings.Last();
                 ImuData imuData = getDataFromString(dataString);
-                this.aiLogic.processNewData(imuData);
+                //this.aiLogic.processNewData(imuData);
             }
         }
 
@@ -93,14 +93,14 @@ namespace QuadControlApp.Imu
             // Data container
             ImuData imuData = new ImuData();
 
-            // Get a list of the data fields
+            // Get a list of the data classFields
             Type type = typeof(ImuData);
             FieldInfo[] dataFields = type.GetFields();
             List<FieldInfo> dataPrefixes = dataFields.ToList();
 
             //Dictionary<String, FieldInfo> dataPatterns = new Dictionary<String,FieldInfo>();
             
-            // For each of the fields, create a regex and parse the result into the field
+            // For each of the classFields, create a regex and parse the result into the classField
             foreach (FieldInfo datumField in dataFields)
             {
                 if (datumField.Name != "DATA_START" && datumField.Name != "DATA_END")

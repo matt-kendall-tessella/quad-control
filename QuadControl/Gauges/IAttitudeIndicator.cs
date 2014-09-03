@@ -7,8 +7,8 @@ using QuadControlApp.Data;
 
 namespace QuadControlApp.Gauges
 {
-    interface IAttitudeIndicator : IGauge
+    public interface IAttitudeIndicator : IGauge
     {
-        void updateAttitude(Attitude attitude);
+        void updateAttitude(AttitudeData attitude);
     }
 }

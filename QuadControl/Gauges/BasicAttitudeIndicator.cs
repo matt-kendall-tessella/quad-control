@@ -11,8 +11,10 @@ using QuadControlApp.Data;
 
 namespace QuadControlApp.Gauges
 {
-    class BasicAttitudeIndicator : IAttitudeIndicator
+    public class BasicAttitudeIndicator : IGauge
     {
+        AttitudeData attitude;
+
         Canvas canvas;
         Image aiBackground;
         Image aiNeedle;
@@ -29,8 +31,7 @@ namespace QuadControlApp.Gauges
             createAiBackground();
             createAiNeedle();
             canvas.Children.Add(aiBackground);
-            canvas.Children.Add(aiNeedle);
-            
+            canvas.Children.Add(aiNeedle);            
         }
 
         private void createAiBackground()
@@ -66,22 +67,21 @@ namespace QuadControlApp.Gauges
             Canvas.SetTop(aiNeedle, canvas.Height / 2 );//- 3);
         }
 
-        public void updateAttitude(Attitude attitude)
+        public void notify(IData changed)
         {
-            /* May need to wrap this in:
-            Dispatcher.Invoke((Action)(() => {         
-             */
+            attitude = changed as AttitudeData;
+            if (attitude !=null)
+            {
+                // First we set the pitch and the new rotate point
+                var top = ((canvas.Height - aiBackground.Height) / 2) + mapPitchToAiHeight(attitude.pitch);
+                Canvas.SetTop(aiBackground, top); // - V_OFFSET??
+                RotateTransform rotate = (RotateTransform)aiBackground.RenderTransform;
+                aiBackground.RenderTransformOrigin = new Point(0.5, 0.5 - mapPitchToAiHeight(attitude.pitch) / aiBackground.Height);
 
-            // First we set the pitch and the new rotate point
-            var top = ((canvas.Height - aiBackground.Height) / 2) + mapPitchToAiHeight(attitude.getPitch());
-            Canvas.SetTop(aiBackground, top); // - V_OFFSET??
-            RotateTransform rotate = (RotateTransform)aiBackground.RenderTransform;
-            aiBackground.RenderTransformOrigin = new Point(0.5, 0.5 - mapPitchToAiHeight(attitude.getPitch()) / aiBackground.Height);
-            
-            // Now apply a roll transform about the new axis
-            rotate.Angle = attitude.getRoll();
-        }
-
+                // Now apply a roll transform about the new axis
+                rotate.Angle = attitude.roll; 
+            }
+        }       
 
         private double mapPitchToAiHeight(double pitch)
         {
