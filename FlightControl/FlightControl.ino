@@ -75,7 +75,8 @@ void loop()
 
   
  //outputAttitude();
- outputRawCsv();
+ //outputRawCsv();
+  outputEverything();
   
   delay(1000.0/SAMPLE_FREQ);
 }
@@ -113,6 +114,36 @@ void outputRawCsv() {
   Serial.print("ZM");
   Serial.print(Za);
   Serial.println("Z");
+}
+
+void outputEverything() {
+  Serial.print("AA");
+  Serial.print("XA");
+  Serial.print(Xa);
+  Serial.print("YA");
+  Serial.print(Ya);
+  Serial.print("ZA");
+  Serial.print(Za);
+  Serial.print("XG");
+  Serial.print(Xa);
+  Serial.print("YG");
+  Serial.print(Ya);
+  Serial.print("ZG");
+  Serial.print(Za);
+  Serial.print("XM");
+  Serial.print(Xa);
+  Serial.print("YM");
+  Serial.print(Ya);
+  Serial.print("ZM");
+  Serial.print(Za);
+  Serial.print("AP");
+  Serial.print(pitch);
+  Serial.print("AR");
+  Serial.print(roll);
+  Serial.print("AY");
+  Serial.print(yaw);
+  Serial.println("ZZ");
+
 }
 
 

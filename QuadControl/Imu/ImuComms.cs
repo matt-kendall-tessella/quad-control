@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.IO.Ports;
 using System.Reflection;
+using QuadControlApp.Connectors;
 
 namespace QuadControlApp.Imu
 {
@@ -14,17 +15,14 @@ namespace QuadControlApp.Imu
     class ImuComms
     {
         private SerialPort port;
-        //private AiLogic aiLogic;
         public static int BAUD_RATE = 115200;
         public static int DELAY = 100;
+        private IConnector[] dataConnectors = new IConnector[0];
 
-        //static String dataStart = "A";
-        //static String dataEnd = "Z";
-        //static List<String> dataPrefixes = new List<string> { "XA", "YA", "ZA", "XG", "YG", "ZG", "XM", "YM", "P", "T" };
 
-        public void start(QuadController aiLogic) 
+        public void start(IConnector[] dataConnectors) 
         {
-            //this.aiLogic = aiLogic;
+            this.dataConnectors = dataConnectors;
             port = new SerialPort("COM6", BAUD_RATE);
             port.Open();
             port.DtrEnable = true;
@@ -49,7 +47,10 @@ namespace QuadControlApp.Imu
             {
                 String dataString = dataStrings.Last();
                 ImuData imuData = getDataFromString(dataString);
-                //this.aiLogic.processNewData(imuData);
+                foreach (IConnector connector in this.dataConnectors)
+                {
+                    connector.updateData(imuData);    
+                }
             }
         }
 
@@ -64,6 +65,18 @@ namespace QuadControlApp.Imu
             FieldInfo[] dataFields = type.GetFields();
             List<FieldInfo> dataPrefixes = dataFields.ToList();
 
+            String dataPattern = generateDataPattern(dataFields);
+
+            List<String> dataStrings = new List<string>();
+            foreach (Match m in Regex.Matches(input, dataPattern))
+            {
+                dataStrings.Add(m.Value);
+            }
+            return dataStrings;
+        }
+
+        private static string generateDataPattern(FieldInfo[] dataFields)
+        {
             String dataPattern = ImuData.DATA_START;
             foreach (FieldInfo dF in dataFields)
             {
@@ -74,17 +87,11 @@ namespace QuadControlApp.Imu
                 }
             }
             dataPattern += ImuData.DATA_END;
-
-            List<String> dataStrings = new List<string>();
-            foreach (Match m in Regex.Matches(input, dataPattern))
-            {
-                dataStrings.Add(m.Value);
-            }
-            return dataStrings;
+            return dataPattern;
         }
 
         /// <summary>
-        /// Take a correctly formatted string and return {roll, pitch}
+        /// Take a correctly formatted string and return an ImuData object
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -103,20 +110,19 @@ namespace QuadControlApp.Imu
             // For each of the classFields, create a regex and parse the result into the classField
             foreach (FieldInfo datumField in dataFields)
             {
-                if (datumField.Name != "DATA_START" && datumField.Name != "DATA_END")
-                {
-                    // Get the regex for this datum
-                    String datumPattern = datumField.Name.ToUpper();
-                    datumPattern += "[0-9-.]*";
+                // Get the regex for this datum
+                String datumName = datumField.Name.ToUpper();
+                String datumPattern = datumName + "[0-9-.]+";
 
-                    // Get the string, trim and parse;
-                    String datumString = Regex.Match(data, datumPattern).Value;
-                    String datumDoubleString = datumString.TrimStart(datumField.Name.ToUpper().ToCharArray());
+                // Get the string, trim and parse;
+                String datumString = Regex.Match(data, datumPattern).Value;
+                String datumDoubleString = datumString.TrimStart(datumField.Name.ToUpper().ToCharArray());
+                if (datumDoubleString.Length > 0)
+                {
                     double datum;
                     double.TryParse(datumDoubleString, out datum);
-
-                    datumField.SetValue(imuData, datum);
-                }
+                    datumField.SetValue(imuData, datum);     
+                }           
             }
             return imuData;
         }

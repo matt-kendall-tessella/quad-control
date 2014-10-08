@@ -38,11 +38,9 @@ void calculateOrientation(double x, double y, double z);
 //
 void outputAttitude();
 void outputRawCsv();
+void outputEverything();
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\FlightControl.ino"
-#include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\CppRes.cpp"
-#include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\CppRes.h"
-#include "C:\Users\kenm\Documents\GitHub\quad-control\FlightControl\Tests.cpp"
 #endif

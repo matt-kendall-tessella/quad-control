@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connectors\EngineConnector.cs" />
+    <Compile Include="Connectors\IConnector.cs" />
     <Compile Include="Data\EngineData.cs" />
     <Compile Include="Data\IData.cs" />
+    <Compile Include="Connectors\AttitudeConnector.cs" />
     <Compile Include="QuadController.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>

@@ -7,6 +7,7 @@ using QuadControlApp.Imu;
 using QuadControlApp.Data;
 using QuadControlApp.Gauges;
 using System.Reflection;
+using QuadControlApp.Connectors;
 
 namespace QuadControlApp
 {
@@ -28,9 +29,12 @@ namespace QuadControlApp
            // this.app = app;
             attitudeData = new AttitudeData();
             engineData = new EngineData();
-            //attitudeData.registerObserver(mainWindow.ai);
             List<IGauge> gauges = identifyGauges(mainWindow);
             subscribeGaugesToData(gauges);
+            AttitudeConnector attitudeConnector = new AttitudeConnector(attitudeData);
+            // TODO EngineConnector here
+            imuComms = new ImuComms();
+            imuComms.start(new[] { attitudeConnector });
         }
 
         // Change MainWindow to Window??
@@ -107,14 +111,14 @@ namespace QuadControlApp
 
 
         // Start the imuComms communicating with this
-        public void beginImuComms()
-        {
-            if (imuComms == null)
-            {
-                //imuComms = new ImuComms();
-                imuComms.start(this);
-            }
-        }
+        //public void beginImuComms()
+        //{
+        //    if (imuComms == null)
+        //    {
+        //        //imuComms = new ImuComms();
+        //        imuComms.start(this);
+        //    }
+        //}
 
         //public AttitudeData getCurrentAttitude()
         //{

@@ -70,7 +70,7 @@ namespace QuadControlApp
 
         //private void button1_Click(object sender, RoutedEventArgs e)
         //{
-        //   // app.aiLogic.zeroAttitude();
+        //   // app.controller.zeroAttitude();
         //    //roll = 0;
         //    //pitch = 0;
         //    //updateAi();

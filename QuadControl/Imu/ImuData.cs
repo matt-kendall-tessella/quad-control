@@ -7,8 +7,8 @@ namespace QuadControlApp.Imu
 {
     public class ImuData
     {
-        public static String DATA_START = "A";
-        public static String DATA_END = "Z";
+        public static String DATA_START = "AA";
+        public static String DATA_END = "ZZ";
 
         // Accelerometer data
         public double xa;
@@ -24,6 +24,11 @@ namespace QuadControlApp.Imu
         public double xm;
         public double ym;
         public double zm;
+
+        // Combined attitude reference data
+        public double ap; // Pitch
+        public double ar; // Roll        
+        public double ay; // Yaw        
 
         // Barometer data
         //public double p;
