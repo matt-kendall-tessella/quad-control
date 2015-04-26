@@ -31,7 +31,7 @@ typedef unsigned char byte;
 extern "C" void __cxa_pure_virtual() {;}
 
 //
-void zero();
+void zeroAccel();
 void readAccel();
 void calibrateAccel(int x, int y, int z);
 void calculateOrientation(double x, double y, double z);

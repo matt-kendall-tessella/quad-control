@@ -22,13 +22,17 @@ L3G4200D gyro;
 void setup()
 {
   Serial.begin(115200);
+  Serial.println("START");
   Wire.begin();
+  Serial.println("a");
   acc.begin();
-  gyro.enableDefault(); 
-  //zero(); 
+  Serial.println("b");
+  gyro.enableDefault();
+  Serial.println("c");
+  //zeroAccel(); 
 }
 
-void zero()
+void zeroAccel()
 {	
 	int x, y, z;
 	acc.read(&x, &y, &z);
@@ -70,8 +74,13 @@ void calculateOrientation(double x, double y, double z)
 
 void loop()
 {
+  Serial.println("1");
   readAccel();
+  Serial.println("2");
+  gyro.read();
+  Serial.println("3");
   calculateOrientation(Xa, Ya, Za);
+  Serial.println("4");
 
   
  //outputAttitude();
@@ -125,11 +134,11 @@ void outputEverything() {
   Serial.print("ZA");
   Serial.print(Za);
   Serial.print("XG");
-  Serial.print(Xa);
+  Serial.print((int)gyro.g.x);
   Serial.print("YG");
-  Serial.print(Ya);
+  Serial.print((int)gyro.g.y);
   Serial.print("ZG");
-  Serial.print(Za);
+  Serial.print((int)gyro.g.z);
   Serial.print("XM");
   Serial.print(Xa);
   Serial.print("YM");

@@ -8,8 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{17C66E
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlightControl", "FlightControl\FlightControl.vcxproj", "{6E142287-B358-4E3E-B937-157D6EFC5063}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,20 +34,6 @@ Global
 		{2366D603-31BC-473C-B30F-57DD9D24B436}.Release|Win32.Build.0 = Release|x86
 		{2366D603-31BC-473C-B30F-57DD9D24B436}.Release|x86.ActiveCfg = Release|x86
 		{2366D603-31BC-473C-B30F-57DD9D24B436}.Release|x86.Build.0 = Release|x86
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|Win32.ActiveCfg = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|Win32.Build.0 = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|x86.ActiveCfg = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Debug|x86.Build.0 = Debug|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|Any CPU.ActiveCfg = Release|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|Win32.ActiveCfg = Release|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|Win32.Build.0 = Release|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|x86.ActiveCfg = Release|Win32
-		{6E142287-B358-4E3E-B937-157D6EFC5063}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
